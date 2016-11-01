@@ -12,13 +12,14 @@ import com.mycompany.frb.model.FootballTeam;
 import com.mycompany.frb.model.Footballer;
 import com.mycompany.frb.model.League;
 import rx.Observable;
-import rx.Subscriber;
 
 public class Broadcaster {
 
-    public static void broadcastFeed() {
 
-        Observable<FootballResult> footballResultObservable = Observable.create(subscriber -> {
+
+    public Observable<FootballResult> broadcastFeed() {
+
+        return Observable.create(subscriber -> {
             int i = 0;
             while (i < 100) {
                 FootballResult footballResult = new FootballResult();
@@ -35,25 +36,6 @@ public class Broadcaster {
 
             subscriber.onCompleted();
         });
-
-        Subscriber<FootballResult> footballResultSubscriber = new Subscriber<FootballResult>() {
-            @Override
-            public void onCompleted() {
-                System.out.println("Broadcasting completed");
-            }
-
-            @Override
-            public void onError(Throwable throwable) {
-                System.err.println("Error occurred during broadcast");
-            }
-
-            @Override
-            public void onNext(FootballResult footballResult) {
-                System.out.println(footballResult);
-            }
-        };
-
-        footballResultObservable.subscribe(footballResultSubscriber);
 
     }
 
