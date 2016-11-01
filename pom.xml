@@ -7,7 +7,13 @@
   <version>1.0-SNAPSHOT</version>
   <name>football-results-broadcaster-rxjava</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
 
+  <dependencies>
+    <dependency>
+      <groupId>io.reactivex</groupId>
+      <artifactId>rxjava</artifactId>
+      <version>1.2.1</version>
+    </dependency>
   </dependencies>
+
 </project>
