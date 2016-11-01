@@ -1,13 +1,12 @@
 package com.mycompany.frb;
 
 /**
- * Hello world!
- *
+ * Application
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+public class App {
+
+    public static void main(String[] args){
+        System.out.println("Application");
     }
+
 }
