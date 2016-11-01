@@ -5,13 +5,12 @@
  */
 package com.mycompany.frb.infrastructure.client;
 
-import com.mycompany.frb.model.FootballResult;
 import rx.Subscriber;
 
-public class Client {
+public final class Client {
 
-    public Subscriber<FootballResult> listen() {
-        return new Subscriber<FootballResult>() {
+    public static Subscriber<String> listen() {
+        return new Subscriber<String>() {
             @Override
             public void onCompleted() {
                 System.out.println("Broadcasting completed");
@@ -23,7 +22,7 @@ public class Client {
             }
 
             @Override
-            public void onNext(FootballResult footballResult) {
+            public void onNext(String footballResult) {
                 System.out.println(footballResult);
             }
         };

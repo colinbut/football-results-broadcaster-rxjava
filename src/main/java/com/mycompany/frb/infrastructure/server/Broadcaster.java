@@ -17,7 +17,7 @@ public class Broadcaster {
 
 
 
-    public Observable<FootballResult> broadcastFeed() {
+    public static Observable<FootballResult> broadcastFeed() {
 
         return Observable.create(subscriber -> {
             int i = 0;
