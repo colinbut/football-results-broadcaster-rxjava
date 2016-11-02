@@ -5,25 +5,32 @@
  */
 package com.mycompany.frb.infrastructure.client;
 
+import org.apache.log4j.Logger;
 import rx.Subscriber;
 
 public final class Client {
+
+    private static final Logger LOGGER = Logger.getLogger(Client.class);
+
+    private Client() {
+        LOGGER.info("Init Client");
+    }
 
     public static Subscriber<String> listen() {
         return new Subscriber<String>() {
             @Override
             public void onCompleted() {
-                System.out.println("Broadcasting completed");
+                LOGGER.info("Broadcasting completed");
             }
 
             @Override
             public void onError(Throwable throwable) {
-                System.err.println("Error occurred during broadcast");
+                LOGGER.error("Error occurred during broadcast");
             }
 
             @Override
             public void onNext(String footballResult) {
-                System.out.println(footballResult);
+                LOGGER.info(footballResult);
             }
         };
     }

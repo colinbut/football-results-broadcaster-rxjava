@@ -4,15 +4,22 @@ import com.mycompany.frb.infrastructure.client.Client;
 import com.mycompany.frb.infrastructure.server.Broadcaster;
 import com.mycompany.frb.model.FootballEvent;
 import com.mycompany.frb.model.FootballTeam;
+import org.apache.log4j.Logger;
 
 
 /**
  * Application
  */
-public class FootballResultsBroadcaster {
+public final class FootballResultsBroadcaster {
+
+    private static final Logger LOGGER = Logger.getLogger(FootballResultsBroadcaster.class);
+
+    private FootballResultsBroadcaster() {
+        LOGGER.info("Init FootballResultsBroadcaster");
+    }
+
 
     public static void main(String[] args){
-        System.out.println("Application");
 
         Broadcaster
             .broadcastFeed()
